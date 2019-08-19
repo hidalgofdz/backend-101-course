@@ -1,7 +1,7 @@
 ---
-id: doc1
-title: Latin-ish
-sidebar_label: Example Page
+id: what-is-an-api
+title: What is an API?
+sidebar_label: What is an API?
 ---
 
 Check the [documentation](https://docusaurus.io) for how to use Docusaurus.
