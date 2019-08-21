@@ -1,5 +1,18 @@
 {
   "docs": {
+    "Resources": [
+      "what-is-rest",
+      "what-is-an-api"
+    ],
+    "Glossary": [
+      "backend",
+      "frontend",
+      "request",
+      "response",
+      "transfer",
+      "state",
+      "representational"
+    ],
     "Docusaurus": [
       "doc1",
       "doc4"
