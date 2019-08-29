@@ -1,8 +1,9 @@
 {
   "docs": {
     "Resources": [
+      "what-is-an-api",
       "what-is-rest",
-      "what-is-an-api"
+      "my-first-dummy-api"
     ],
     "Glossary": [
       "backend",
@@ -13,6 +14,7 @@
       "state",
       "representational"
     ],
+
     "Docusaurus": [
       "doc1",
       "doc4"
