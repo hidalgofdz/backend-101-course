@@ -6,16 +6,16 @@ sidebar_label: What is REST?
 
 ## REST Definition
 
-REST is an acronym for **Representational State Transfer**. REST is an architectural style for building applications, mostly for the web. REST was proposed by _Roy Thomas Fielding_ in his doctoral thesis in the year 2000. Nevertheless, it did not become popular in the  industry until 2008/2009.
+REST is an acronym for **Representational State Transfer**. REST refers to an architectural style for building applications, mostly for the web. It was proposed by _Roy Thomas Fielding_ in his doctoral thesis in the year 2000. Nevertheless, it did not become popular in the  industry until 2008/2009.
 
 It is important to mention that although most today backend applications follow some of the REST architectural characteristics, the majority of them do not conform to the architecture completely.
- 
+
 Most, if not all, of the applications that are considered "REST" are web applications, but that doesn't mean that in order to use REST you need to use the HTTP protocol or the web. Actually, you can implement REST using any technology that conforms with the REST architectural characteristics.
- 
- 
+
+
 ## Why REST?
 
-When _the cloud_ started REST became really popular because most modern applications needed to comply with two things in order to take advantage of the cloud to the fullest. The first one is the necessity for *heterogeneous interoperability* and second one is the necessity of *scalability*.
+When _the cloud_ started, REST became really popular since most modern applications needed to comply with two things in order to take advantage of the cloud to the fullest. The first one is the necessity for *heterogeneous interoperability* and second one is the necessity of *scalability*.
 
 ### Heterogeneous interoperability
 
@@ -35,19 +35,19 @@ Imagine we have an application that can sustain 350 concurrent user sessions.
 
 ![Scalability Example 1](assets/what-is-rest/scalability-1.png)
 
-One day our application become popular and it starts having 400 concurrent users. For that reason the team decide to add another server so it can sustain the demand. 
+One day our application become popular and it starts having 400 concurrent users. For that reason the team decide to add another server so it can sustain the demand.
 
 ![Scalability Example 2](assets/what-is-rest/scalability-2.png)
 
 The question is. What will happen if a user session was stored in the first server and the DNS decide to send one of that user requests to the second server?
 
  ![Scalability Example 3](assets/what-is-rest/scalability-3.png)
- 
+
  If an application is not designed for horizontal scalability it doesn't matter how many server you add. It will break.
- 
+
 #### Elastic Infrastructure
- 
- These days, there are many hosting services where you only pay for the hardware you use. This is a good way for a company to scale without having to pay for hardware and its maintenance. Examples of this services are [Heroku](https://www.heroku.com/) an [AWS](https://aws.amazon.com/). 
+
+ These days, there are many hosting services where you only pay for the hardware you use. This is a good way for a company to scale without having to pay for hardware and its maintenance. Examples of this services are [Heroku](https://www.heroku.com/) an [AWS](https://aws.amazon.com/).
 
 ## REST Architectural Characteristics
 
@@ -56,7 +56,7 @@ The following characteristics, except for Code on Demand, must be followed in or
 ### Client-Server
 
 Client-Server is a architecture that states the existence of a server in charge of performing a set of services by request, and one or more clients which can request the server to do an specific service and then display its result. The two main subjects are the server and the client(s) and each has an specific role.
- 
+
 #### Server
 
 The _server_ who is responsible of:
@@ -67,24 +67,24 @@ The _server_ who is responsible of:
 
 The server is a **reactive** process in charge of providing a set of services to a multiple number of  clients. That means that the server waits for requests and it reacts to them, and in order to do that, the server runs a never-ending process that is always listening for client requests.
 
-#### Client 
+#### Client
 
 The _client_:
 
 - Wants a service.
 - Sends a request to the server.
 
-A client is a **trigger** process because it sends requests to a server so it can perform a service. In the client-server architecture the client always starts the activity. 
+A client is a **trigger** process because it sends requests to a server so it can perform a service. In the client-server architecture the client always starts the activity.
 
 #### Benefits
 
 - **Portability:** It can be used by multiple platforms.
 - **Scalability:** It simplifies the server logic since the server is no longer responsible for the client logic.
-- **Independent evolution:** Both client and server can evolve at their own pace. That way the server can add more features even if the client does not used it yet. 
+- **Independent evolution:** Both client and server can evolve at their own pace. That way the server can add more features even if the client does not used it yet.
 
 ### Stateless
 
-This characteristic state that communication between server and client should not be dependent of any previously sent state. Before REST, many applications store data between requests inside the server, making the information difficult to synchronize between requests, or between servers when scaling up.  
+This characteristic state that communication between server and client should not be dependent of any previously sent state. Before REST, many applications store data between requests inside the server, making the information difficult to synchronize between requests, or between servers when scaling up.
 
 #### Differences between a Stateful and a Stateless application
 
@@ -110,19 +110,61 @@ Even though there are advantages, I couldn't find any reference to them. Feel fr
 
 ###### Advantages
 
-* Visibility: As a developer, is really easy to understand what the client wants by just looking at the request. 
-* Reliability: Given that in a stateless server there are no synchronization problems between requests and that  clients always send all the necessary information in  the requests. If an error occurs it will only affect the request that have sent it and not the entire server. 
+* Visibility: As a developer, is really easy to understand what the client wants by just looking at the request.
+* Reliability: Given that in a stateless server there are no synchronization problems between requests and that  clients always send all the necessary information in  the requests. If an error occurs it will only affect the request that have sent it and not the entire server.
 * Scalability: Given and stateless server, we as developers can add more servers without having to change the application code.
 
 ###### Disadvantages
- 
+
 * Less data efficient: Given that the client should always send all the data necessary, there are more data per request than in a stateful application.
 
 
 ### Cache
 
+![Cache Example](./assets/what-is-rest/cache.png)
+
+Given that REST is used mostly for the web the net latency can become an issue if it is too long. In order to improve its efficiency REST proposes to use a Cache in the client side.
+
+#### Advantages
+
+* Totally or partially removes some interactions between client and server.
+* Improves bandwidth and net usage.
+* Lowers data overload.
+
+####  Disadvantages
+
+* It can affect data reliability
+
 ### Uniform Interface
+
+This is the most important characteristics of the REST architecture. By using it, applications can communicate with heterogeneous systems, different applications on different platforms and programming languages. An uniform interface should be independent from the applications so they can grow independently without concerning about the interface. In order to communicate all applications should have the same uniform interface.
+
+#### Characteristics
+
+Every uniform interface should have the following characteristics:
+
+* Resource Identifiers
 
 ### Layered System
 
+In a layered system each component of the system (client or server) does not know beyond of the other components it interacts with. The idea behind these characteristic is to facilitate the complexity of the application. In addition, is also common for a layered system to have security mechanism, caches, applications that transforms the data from other services and even legacy systems.
+
+#### Benefits
+
+**Less Complexity**: Knowing only a few layers reduces the complexity while developing applications.
+
+#### Disadvantages
+
+**Low Performance**: Each layer added adds latency and can add data overload, and this can be perceived by the user.
+
 ### Code on demand (Optional)
+
+When this characteristic is used the server is capable to send code to clients for them to execute. That way the server can enhance clients remotely. This is an optional characteristic, so all clients should be able to function without executing the code. In reality this characteristic is almost not used.
+
+#### Benefits
+
+**Facility to extend the client**: Each client can bee enhance remotely and that means less features to implement for the client.
+
+#### Disadvantages
+
+**Visibility Loss**: The visibility is reduced since the client does not really knows what the code is doing.
