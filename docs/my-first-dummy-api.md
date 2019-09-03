@@ -5,50 +5,177 @@ title: My First Dummy API
 
 ## Objective
 
-Create and deploy to production your first web API application capable of receiving GET requests to /greet and respond "Hello World".
+For this API we want to create an endpoint that respond `Hello World!` every time a request is send its way. After that we will create a CRUD (Create, Read, Update Delete) of Products that will be accessible through the `/products` endpoint. The goal is to learn good API architectural practices and how to create controllers, models, migrations and how to configure a database.
 
-![It ain't much but is honest work](./assets/my-first-dummy-api/honest-work.jpg)  
-##  Installation and Configuration
+## A little more complex Hello World
 
-### Setup Environment 
+### Let's start with a test...
 
-#### Windows
+Run this command in your terminal to create a new test file inside the tests directory.
 
-You can install [Laragon](https://laragon.org/download/) or [Homestead](https://laravel.com/docs/5.8/homestead). I have had problems installing Homestead on Windows in the past, so it might not be the best option. If you use Laragon watch this [video](https://www.youtube.com/watch?v=2pQSt9ST22A) after installing it. It will show you how to create your first Laravel application
+``` shell
+php artisan make:test HelloWorld
+```
 
-#### Mac 
+After that you should have a file named HelloWorldTest inside the `tests/feature` directory that looks something like this:
 
-Firstly you need to install [homebrew](https://brew.sh), then we are going to use Laravel Valet so just follow its [installation guide](https://laravel.com/docs/5.8/valet#installation). When finish you will have installed [homebrew](https://brew.sh), php and [composer](https://getcomposer.org/) and Laravel Valet in your machine.
+```php
+# tests/Feature/HelloWorldTest.php
+<?php
 
-### Linux
+namespace Tests\Feature;
 
-You can install Homestead following this [instructions](https://laravel.com/docs/5.8/homestead)
-  
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
-## Bootstrapping your first application
+class HelloWorldTest extends TestCase
+{
+    /**
+     * 
+     *
+     * @return void
+     */
+    public function testExample()
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+}
+
+```
+
+Don't worry much about how it is working right know. Instead let's change it so it reflects what we want our API to do. As explained in the objective we want to create an endpoint `/greeting` that respond `Hello World!` so lets do that. 
+
+```php
+# tests/Feature/HelloWorldTest.php
+<?php
+
+namespace Tests\Feature;
+
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class HelloWorldTest extends TestCase
+{
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+    public function test_when_client_send_a_request_a_hello_world_is_responded()
+    {
+        
+        # When
+        # we send a GET request to the url /greeting
+        $response = $this->get('api/greeting');
+
+        # Then
+        # We receive a HTTP status code of 200 (OK)
+        $response->assertStatus(200);
+        # We receive the texts "Hello World!" inside the response
+        $response->assertSeeText('Hello World!');
+    }
+}
+```
+> **Note:** phpunit runs every functions that start with the `test` prefix. Don't forget to name your test functions correctly!
  
-### Create a Laravel Project
-   * Follow the [instructions](https://laravel.com/docs/5.8/installation) to create your first Laravel Project.
+Now that we have a test that reflects what we want to accomplish lets run it to watch it fail. Don't be too sad, as creating a test to watch it fail is a common [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) workflow. To run our tests we would use [phpunit](https://phpunit.de/). Fortunately, it is already installed with Laravel, so you don't have to installed yourself. Use the command below to run your tests.
 
-## Push it to a Repository
+```shell
+vendor/bin/phpunit
+``` 
 
-### Create a Github Repo
-  * Create [Github Account](https://github.com/join) (if you don't have one)
-  * [Create a Repo](https://help.github.com/en/articles/create-a-repo)
-  * [Push it to Github](https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line)
-  
-## Push it to production
+This should give you a response that looks something like this: 
 
-####  Setting up Heroku
-  * [Create a Heroku account](https://signup.heroku.com) (if you don't have one)
-  * [Install Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
-  * Commit the last changes (if any)
-  * [Prepare and Push Project to production](https://devcenter.heroku.com/articles/getting-started-with-laravel#deploying-to-heroku)
+```shell
+❯ vendor/bin/phpunit
+PHPUnit 7.5.15 by Sebastian Bergmann and contributors.
 
-### Push our project to production    
-* A little complex "Hello World"    
-* Create our first route (I need to define what a route is)
-* Create our first response (I need to define what a response is)
-* Create out first request (I need to define what a request is)
-* I need to define what json is
+..F                                                                 3 / 3 (100%)
 
+Time: 344 ms, Memory: 16.00 MB
+
+There was 1 failure:
+
+1) Tests\Feature\HelloWorldTest::testExample
+Expected status code 200 but received 404.
+Failed asserting that false is true.
+
+/Users/hidalgofdz/development/yellowme/backend-fundamentals-examples/dummy-app/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestResponse.php:151
+/Users/hidalgofdz/development/yellowme/backend-fundamentals-examples/dummy-app/tests/Feature/HelloWorldTest.php:25
+
+FAILURES!
+Tests: 3, Assertions: 3, Failures: 1.
+
+``` 
+
+If you take a closer look, you will notice that phpunit is already telling us which assertion when wrong, the one in line 25 in HelloWorldTest.php. That assertion expect our endpoint to return a HTTP Status code of 200 but it is returning a 404, to fix it, we should define the endpoint `api/greeting` in our application so it knows what to do when a client send a request in that way.
+
+### Creating our greeting endpoint
+
+Go to `routes/api.php` and add this at the bottom:
+
+```php
+# routes/api.php
+
+Route::get('/greeting', function (Request $request){
+    return '';
+});
+```
+
+After that lets run `vendor/bin/phpunit` again:
+
+```shell
+❯ vendor/bin/phpunit     
+PHPUnit 7.5.15 by Sebastian Bergmann and contributors.
+
+..F                                                                 3 / 3 (100%)
+
+Time: 128 ms, Memory: 16.00 MB
+
+There was 1 failure:
+
+1) Tests\Feature\HelloWorldTest::testExample
+Failed asserting that '' contains "Hello World!".
+
+/Users/hidalgofdz/development/yellowme/backend-fundamentals-examples/dummy-app/vendor/laravel/framework/src/Illuminate/Foundation/Testing/TestResponse.php:389
+/Users/hidalgofdz/development/yellowme/backend-fundamentals-examples/dummy-app/tests/Feature/HelloWorldTest.php:27
+
+FAILURES!
+Tests: 3, Assertions: 4, Failures: 1.
+
+```
+
+The error has changed! Every time something changes there is progress. The new error says our app is returning the correct text so lets change that. 
+
+```php
+# routes/api.php
+
+Route::get('/greeting', function (Request $request){
+    return 'Hello World!';
+});
+```
+
+Let's run `vendor/bin/phpunit` again. The tests should be all green.
+
+```shell
+❯ vendor/bin/phpunit
+PHPUnit 7.5.15 by Sebastian Bergmann and contributors.
+
+...                                                                 3 / 3 (100%)
+
+Time: 335 ms, Memory: 16.00 MB
+
+OK (3 tests, 4 assertions)
+```  
+
+Now lets see our baby (I'm talking about the API) correctly respond to the `/api/greeting` request. Just deploy your application, open a browser and write a url that looks something like this: [http://dummy-app.test/api/greeting](http://dummy-app.test/api/greeting). If everything went as planned you will see a white page with the text `Hello World!` at the top.
+
+<img width="600" src="./assets/my-first-dummy-api/the-fruit-of-your-work.png" alt="greetings endpoint respond"/>
+
+## Lets create our First CRUD
+
+TBW

@@ -1,13 +1,13 @@
 ---
-id: my-first-dummy-api
-title: My First Dummy API
+id: my-first-dummy-laravel-app
+title: My First Dummy Laravel App
 ---
 
 ## Objective
 
 Create and deploy to production your first Laravel application. It will not do much but it's honest work. We will create the application that will just show the classic  _New Laravel Application_ page. In addition we will configure our code repository and production environment, and at the end we will create our first continuous integration(CI) pipeline to deploy to production our changes automatically.
 
-![It ain't much but is honest work](./assets/my-first-dummy-api/honest-work.jpg)  
+![It ain't much but is honest work](./assets/my-first-dummy-laravel-app/honest-work.jpg)  
 ##  Installation and Configuration
 
 ### 1. Setup Environment 
@@ -20,18 +20,18 @@ You can install [Laragon](https://laragon.org/download/) or [Homestead](https://
 
 Firstly you need to install [homebrew](https://brew.sh), then to install Laravel Valet just follow its [installation guide](https://laravel.com/docs/5.8/valet#installation). When you finish you will have installed [homebrew](https://brew.sh), php, [composer](https://getcomposer.org/) and Laravel Valet in your machine.
 
-### Linux
+#### Linux
 
 You can install Homestead following this [instructions](https://laravel.com/docs/5.8/homestead)
   
 ## 2. Bootstrapping your first application
  
-### Create a Laravel Project
+### 2.1 Create a Laravel Project
    1. Follow the [instructions](https://laravel.com/docs/5.8/installation) to create your first Laravel Project.
 
 ## 3. Push the app to a Repository
 
-### Create a Github Repo
+### 3.1 Create a Github Repo
 
   1. Create a [Github Account](https://github.com/join) (if you don't have one)
   1. [Create a Repo](https://help.github.com/en/articles/create-a-repo)
@@ -61,7 +61,7 @@ Firstly we need to give Heroku access to our Github. For that do the following:
   3. Select the **Deploy** tab.
   4. Select _Connect to Github_.
   
-<img width="600" alt="Connect to Github in Deploy Section" src="./assets/my-first-dummy-api/5-1-connect-to-github.png"/>
+<img width="600" alt="Connect to Github in Deploy Section" src="assets/my-first-dummy-laravel-app/5-1-connect-to-github.png"/>
  
 This will redirect you to Github to authorize Heroku.
 
@@ -70,17 +70,10 @@ This will redirect you to Github to authorize Heroku.
 Once your Github account is connected to Heroku go to the "Deploy" section and do the following:
 
   1. Go to "Connect to Github", search for the application's repository and then click on "Connect".
-  <img width="600" alt="Connect button in Connect to Github" src="./assets/my-first-dummy-api/5-2-connect-to-github-search.png"/>
+  <img width="600" alt="Connect button in Connect to Github" src="assets/my-first-dummy-laravel-app/5-2-connect-to-github-search.png"/>
   
   1. Go to the "Automatic deploys" section and click on "Enable automatic deploys".  
 
-   <img width="600" alt="Enable automatic deploy button" src="./assets/my-first-dummy-api/5-2-enable-automatic-deploys.png"/>
+   <img width="600" alt="Enable automatic deploy button" src="assets/my-first-dummy-laravel-app/5-2-enable-automatic-deploys.png"/>
     
 After this just add something to your master branch and watch it get deployed automatically. :D
-
-## Wat
-* A little complex "Hello World"    
-* Create our first route (I need to define what a route is)
-* Create our first response (I need to define what a response is)
-* Create out first request (I need to define what a request is)
-* I need to define what json is
