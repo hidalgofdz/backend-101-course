@@ -53,8 +53,8 @@ const siteConfig = {
 
   /* Colors for website */
   colors: {
-    primaryColor: '#FCD014',
-    secondaryColor: '#09252e',
+    primaryColor: '#ffc133',
+    secondaryColor: '#323232',
   },
 
   /* Custom fonts for website */
@@ -72,7 +72,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} Your Name or Your Company Name`,
+  copyright: `Copyright © ${new Date().getFullYear()} Hidalgo Fernandez`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
