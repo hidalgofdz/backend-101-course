@@ -2,7 +2,10 @@
   "docs": {
     "Resources": [
       "what-is-an-api",
-      "what-is-rest",
+      "what-is-rest"
+    ],
+    "Guides": [
+      "my-first-dummy-laravel-app",
       "my-first-dummy-api"
     ],
     "Glossary": [
@@ -13,17 +16,6 @@
       "transfer",
       "state",
       "representational"
-    ],
-
-    "Docusaurus": [
-      "doc1",
-      "doc4"
-    ],
-    "First Category": [
-      "doc2"
-    ],
-    "Second Category": [
-      "doc3"
     ]
   },
   "docs-other": {

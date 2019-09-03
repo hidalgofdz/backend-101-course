@@ -1,1 +1,18 @@
-{}
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "website/package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "build/backend-fundamentals"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "website/$1"
+    }
+  ]
+}
