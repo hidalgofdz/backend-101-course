@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "hidalgofdz",
+      "name": "hidalgofdz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5541077?v=4",
+      "profile": "https://github.com/hidalgofdz",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "backend-101-course",
+  "projectOwner": "hidalgofdz",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
