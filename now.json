@@ -7,9 +7,6 @@
       "config": {
         "distDir": "build/backend-fundamentals"
       }
-    },
-    {
-      "src": "website/package.json"
     }
   ],
   "routes": [
