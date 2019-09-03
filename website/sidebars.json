@@ -5,8 +5,8 @@
       "what-is-rest"
     ],
     "Guides": [
-      "my-first-dummy-laravel-app",
-      "my-first-dummy-api"
+      "1-my-first-dummy-laravel-app",
+      "2-my-first-dummy-api"
     ],
     "Glossary": [
       "backend",

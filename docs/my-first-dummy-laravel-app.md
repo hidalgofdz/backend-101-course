@@ -1,6 +1,6 @@
 ---
-id: my-first-dummy-laravel-app
-title: My First Dummy Laravel App
+id: 1-my-first-dummy-laravel-app
+title: 1. My First Dummy Laravel App
 ---
 
 ## Objective

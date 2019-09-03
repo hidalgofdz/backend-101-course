@@ -1,15 +1,15 @@
 ---
-id: my-first-dummy-api
-title: My First Dummy API
+id: 2-my-first-dummy-api
+title: 2. My First Dummy API
 ---
 
 ## Objective
 
-For this API we want to create an endpoint that respond `Hello World!` every time a request is send its way. After that we will create a CRUD (Create, Read, Update Delete) of Products that will be accessible through the `/products` endpoint. The goal is to learn good API architectural practices and how to create controllers, models, migrations and how to configure a database.
+Create an API with an endpoint that respond `Hello World!` every time a request is send its way. Then you will create a CRUD (Create, Read, Update Delete) of Products that will be accessible through the `/products` endpoint. The goal is to learn good API architectural practices and how to create controllers, models, migrations and how to configure a database.
 
-## A little more complex Hello World
+## 1. A little more complex Hello World
 
-### Let's start with a test...
+### 1.1 Let's start with a test...
 
 Run this command in your terminal to create a new test file inside the tests directory.
 
@@ -114,7 +114,7 @@ Tests: 3, Assertions: 3, Failures: 1.
 
 If you take a closer look, you will notice that phpunit is already telling us which assertion when wrong, the one in line 25 in HelloWorldTest.php. That assertion expect our endpoint to return a HTTP Status code of 200 but it is returning a 404, to fix it, we should define the endpoint `api/greeting` in our application so it knows what to do when a client send a request in that way.
 
-### Creating our greeting endpoint
+### 1.2 Creating our greeting endpoint
 
 Go to `routes/api.php` and add this at the bottom:
 
@@ -176,6 +176,6 @@ Now lets see our baby (I'm talking about the API) correctly respond to the `/api
 
 <img width="600" src="./assets/my-first-dummy-api/the-fruit-of-your-work.png" alt="greetings endpoint respond"/>
 
-## Lets create our First CRUD
+## 2. Lets create our First CRUD
 
 TBW
