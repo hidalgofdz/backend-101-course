@@ -11,7 +11,7 @@ Create an API with an endpoint that respond `Hello World!` every time a request 
 
 ### 1.1 Let's start with a test...
 
-Run this command in your terminal to create a new test file inside the tests directory.
+Run this command in your terminal inside your project root (e.g. `blog`) to create a new test file. This will be created inside your tests directory.
 
 ``` shell
 php artisan make:test HelloWorld
@@ -80,9 +80,10 @@ class HelloWorldTest extends TestCase
     }
 }
 ```
-> **Note:** phpunit runs every functions that start with the `test` prefix. Don't forget to name your test functions correctly!
+> **Note:** phpunit look for php files that end with the sufix `*Test.php` and runs every functions that start with the `test` prefix. Don't forget to name your files and tests functions correctly!
  
-Now that we have a test that reflects what we want to accomplish lets run it to watch it fail. Don't be too sad, as creating a test to watch it fail is a common [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) workflow. To run our tests we would use [phpunit](https://phpunit.de/). Fortunately, it is already installed with Laravel, so you don't have to installed yourself. Use the command below to run your tests.
+ > **Note:** 
+Now that we have a test that reflects what we want to accomplish, lets run it to watch it fail. Don't be too sad, as creating a test to watch it fail is a common [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) workflow. To run our tests we would use [phpunit](https://phpunit.de/). Fortunately, it is already installed with Laravel, so you don't have to installed yourself. Use the command below to run your tests.
 
 ```shell
 vendor/bin/phpunit
