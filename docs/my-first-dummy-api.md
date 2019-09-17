@@ -5,7 +5,7 @@ title: 2. My First Dummy API
 
 ## Objective
 
-Create an API with an endpoint that respond `Hello World!` every time a request is send its way. Then you will create a CRUD (Create, Read, Update Delete) of Products that will be accessible through the `/products` endpoint. The goal is to learn good API architectural practices and how to create controllers, models, migrations and how to configure a database.
+Create an API with an endpoint that respond `Hello World!` every time a request is send its way. 
 
 ## 1. A little more complex Hello World
 

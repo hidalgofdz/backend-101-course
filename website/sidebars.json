@@ -2,11 +2,13 @@
   "docs": {
     "Resources": [
       "what-is-an-api",
-      "what-is-rest"
+      "what-is-rest",
+      "http-requests"
     ],
     "Guides": [
       "1-my-first-dummy-laravel-app",
-      "2-my-first-dummy-api"
+      "2-my-first-dummy-api",
+      "3-my-first-crud"
     ],
     "Glossary": [
       "backend",
