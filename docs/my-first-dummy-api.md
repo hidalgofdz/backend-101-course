@@ -86,7 +86,11 @@ class HelloWorldTest extends TestCase
 Now that we have a test that reflects what we want to accomplish, lets run it to watch it fail. Don't be too sad, as creating a test to watch it fail is a common [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) workflow. To run our tests we would use [phpunit](https://phpunit.de/). Fortunately, it is already installed with Laravel, so you don't have to installed yourself. Use the command below to run your tests.
 
 ```shell
+# On Mac/Linux:
 vendor/bin/phpunit
+
+# On Windows:
+vendor\bin\phpunit
 ``` 
 
 This should give you a response that looks something like this: 
@@ -176,7 +180,3 @@ OK (3 tests, 4 assertions)
 Now lets see our baby (I'm talking about the API) correctly respond to the `/api/greeting` request. Just deploy your application, open a browser and write a url that looks something like this: [http://dummy-app.test/api/greeting](http://dummy-app.test/api/greeting). If everything went as planned you will see a white page with the text `Hello World!` at the top.
 
 <img width="600" src="./assets/my-first-dummy-api/the-fruit-of-your-work.png" alt="greetings endpoint respond"/>
-
-## 2. Lets create our First CRUD
-
-TBW
